@@ -15,6 +15,14 @@ public class MainApp {
             System.out.println("ERROR: " + e.getMessage());
         }
 
+       System.out.println("\n\n");
+       
+        try {
+            OperacionesIO.recorrerRecursivo(ruta);
+        } catch (Exception e) {
+            System.out.println("ERROR: " + e.getMessage());
+        }
+
         sc.close();
     }
 }
