@@ -54,12 +54,19 @@ public class OperacionesIO {
             String tipo = f.isDirectory() ? "<DIR>" : "<FICHERO>";
             String tamKB = f.isFile() ? ((f.length() + 1023) / 1024) + " KB" : "";
             String fecha = formatoFecha.format(new Date(f.lastModified()));
+             
+            String rutaNueva = ruta + "/" + f.getName();
+            String sangria = "";
 
-            System.out.println("-| " + f.getName() + "  " + tipo + "  "
+            if (rutaNueva != ruta) {
+                sangria = "  ";
+            }
+
+            System.out.println(sangria + "-| " + f.getName() + "  " + tipo + "  "
                     + tamKB + "  " + fecha);
 
             if (f.isDirectory()) {
-                recorrerRecursivo(ruta + "/" + f.getName());
+                recorrerRecursivo(rutaNueva);
             }
 
         }
